@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Países</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 500px;
+            background-color: white;
+            padding: 20px;
+            margin: auto;
+            margin-top: 40px;
+            border-radius: 20px;
+            border: black 1px solid;
+        }
+
+        input {
+            width: 300px;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin-left: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: perspective(1px) translateZ(0);
+        }
+
+        p{
+            margin-left: 230px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        #resultado {
+            margin-top: 90px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Digite o nome do País desejado</h1>
+        <input type="text" id="nomePais" name="country" required>
+
+        <button id="consultar">Consultar</button>
+       
+    </div>
+
+    <div id="resultado">
+        <p>Nome: <span id="nome"></span></p>
+        <p>Capital: <span id="capital"></span></p>
+        <p>Região: <span id="regiao"></span></p>
+        <p>População: <span id="populacao"></span></p>
+        <p>Imagem: <span id="imagem"></span></p>
+    </div>
+
+     <script src="script.js"></script>
+</body>
+</html>
