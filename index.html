@@ -63,7 +63,6 @@
         #imagem {
             width: 120px;
             height: auto;
-            border: 1px solid #ccc;
             border-radius: 5px;
         }
 
@@ -72,6 +71,38 @@
             color: red;
             font-weight: bold;
         }
+
+        @media (max-width: 768px){
+
+            .container{
+                width: 350px;
+            }
+
+            input{
+                margin-left: 10px;
+            }
+
+            h1{
+                margin-left: 10px;
+            }
+
+            #dados{
+                margin-right: 200px;
+            }
+
+            #resultado{
+                flex-direction: column; 
+                align-items: center; 
+            }
+
+            .imagem {
+                margin-top: 20px; 
+                margin-right: 300px ;
+            }
+}
+
+
+        
     </style>
 </head>
 <body>
@@ -89,7 +120,11 @@
         <p>Região: <span id="regiao"></span></p>
         <p>População: <span id="populacao"></span></p>
     </div>
-    <img id="imagem" alt="">
+    <div class="imagem">
+        <img id="imagem" alt="">
+    </div>
+    
+    
 </div>
     
 
