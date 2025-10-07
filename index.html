@@ -6,7 +6,6 @@
     <title>Consulta de Países</title>
 
     <style>
-
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -45,14 +44,36 @@
             transform: perspective(1px) translateZ(0);
         }
 
-        p{
-            margin-left: 230px;
+        p {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 23px;
         }
 
-        #resultado {
-            margin-top: 90px;
+       #resultado {
+            display: flex;
+            align-items: flex-start; /* alinha no topo */
+            justify-content: space-between; /* texto à esquerda e imagem à direita */
+            margin-top: 40px;
+            width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #dados {
+            flex: 1; /* ocupa o espaço da esquerda */
+        }
+
+        #imagem {
+            width: 120px;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+
+        #erroPais {
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -60,19 +81,21 @@
     <div class="container">
         <h1>Digite o nome do País desejado</h1>
         <input type="text" id="nomePais" name="country" required>
-
         <button id="consultar">Consultar</button>
-       
+        <p id="erroPais"></p>
     </div>
 
     <div id="resultado">
+    <div id="dados">
         <p>Nome: <span id="nome"></span></p>
         <p>Capital: <span id="capital"></span></p>
         <p>Região: <span id="regiao"></span></p>
         <p>População: <span id="populacao"></span></p>
-        <p>Imagem: <span id="imagem"></span></p>
     </div>
+    <img id="imagem" alt="Bandeira do país">
+</div>
+    
 
-     <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

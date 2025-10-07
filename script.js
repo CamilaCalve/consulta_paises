@@ -1,14 +1,14 @@
-// https://restcountries.com/v3.1/name/NOME DO PAÍS
-
+const botaoConsultar = document.getElementById("consultar");
 const nomePais = document.getElementById("nomePais");
 
-nomePais.addEventListener("change", (evento) => {
-    let nomePaisUsuario = evento.target.value;
-    buscaPais(nomePaisUsuario);
+botaoConsultar.addEventListener("click", () => {
+    let nomePaisUsuario = nomePais.value.trim(); // pega o texto digitado e remove espaços nas extremidades
+    if (nomePaisUsuario) {
+        buscaPais(nomePaisUsuario);
+    }
 });
 
 async function buscaPais(nomePaisUsuario) {
-
     let erroPais = document.getElementById("erroPais");
     erroPais.innerText = "";
 
@@ -16,26 +16,22 @@ async function buscaPais(nomePaisUsuario) {
         const response = await fetch(`https://restcountries.com/v3.1/name/${nomePaisUsuario}`);
         const dados = await response.json();
 
-        if (dados && dados.length > 0) {  // "dados.length > 0": verifica se o array de países tem pelo menos um elemento 
+        if (response.ok && dados.length > 0) {
             exibeDados(dados[0]);
         } else {
-            erroPais.innerText = "País não encontrado";
+            erroPais.innerText = "País não encontrado.";
         }
-
 
     } catch (error) {
         console.error("Erro ao buscar país:", error);
-        erroPais.innerText = "Erro ao buscar país";
+        erroPais.innerText = "Erro ao buscar país.";
     }
-
 }
-function exibeDados() {
 
-    let nome = document.getElementById("nome")
-    let capital = document.getElementById("capital")
-    let regiao = document.getElementById("regiao")
-    let populacao = document.getElementById("populacao")
-    let imagem = document.getElementById("imagem")
-
-    nome.value = 
+function exibeDados(pais) {
+    document.getElementById("nome").innerText = pais.name.common;
+    document.getElementById("capital").innerText = pais.capital ? pais.capital[0] : "N/A";  // condição ? valor_se_verdadeiro : valor_se_falso
+    document.getElementById("regiao").innerText = pais.region;
+    document.getElementById("populacao").innerText = pais.population.toLocaleString("pt-BR");
+    document.getElementById("imagem").src = pais.flags.svg;
 }
